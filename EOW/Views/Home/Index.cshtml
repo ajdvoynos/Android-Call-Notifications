@@ -1,0 +1,33 @@
+﻿<div class="text-center">
+    <h1 class="display-4">Welcome :)</h1>
+</div>
+
+@section Scripts{
+    <script src="~/lib/@@Microsoft/signalr/dist/browser/signalr.js"></script>
+    <script type="text/javascript">
+        console.log('Sneaky ;)')
+
+        var connection = new signalR.HubConnectionBuilder()
+            .withUrl("/myHub")
+            .withAutomaticReconnect()
+            .configureLogging(signalR.LogLevel.Information)
+            .build()
+
+        connection.on("ReceiveMessage", function (msg) {
+            var $target = $("h1");
+            var originalMessage = $target.text();
+            $target.text(msg);
+            setTimeout(function () {
+                $target.text(originalMessage);
+            }, 5000);
+            //Start svg animation to show secret message
+        })
+
+        connection.start().then(function () {
+            console.log('Connection started 😎')
+        }).catch(function (err) {
+            console.error('Oh no 😯', err)
+        })
+       
+    </script>
+}
