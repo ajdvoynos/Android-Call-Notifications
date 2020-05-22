@@ -1,0 +1,6 @@
+<resources>
+    <string name="app_name">PhoneCallTrigger</string>
+    <string name="action_settings">Give Permissions</string>
+    <string name="hello_first_fragment">Keep this app running for it to work properly.</string>
+    <string name="first_fragment_label">Sure, whatever</string>
+</resources>

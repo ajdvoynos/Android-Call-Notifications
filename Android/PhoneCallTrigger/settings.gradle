@@ -1,0 +1,2 @@
+rootProject.name='PhoneCallTrigger'
+include ':app'
